@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.magnitudestudios.sriharivishnu.statscentral.Game">
+
+    <TextView
+        android:id="@+id/team1Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:text="YourTeam"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        app:layout_constraintBottom_toBottomOf="@+id/team2Name"
+        app:layout_constraintEnd_toEndOf="@+id/scoreTeam1"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/scoreTeam1"
+        app:layout_constraintTop_toTopOf="@+id/team2Name"
+        tools:layout_editor_absoluteY="100dp" />
+
+    <TextView
+        android:id="@+id/scoreTeam1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:elevation="5dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/hyphen"
+        app:layout_constraintEnd_toStartOf="@+id/hyphen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hyphen" />
+
+    <TextView
+        android:id="@+id/scoreTeam2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:elevation="5dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/hyphen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hyphen"
+        app:layout_constraintTop_toTopOf="@+id/hyphen"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/team2Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="5dp"
+        android:text="OpposingTeam"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        app:layout_constraintBottom_toTopOf="@+id/pass_other_team"
+        app:layout_constraintEnd_toEndOf="@+id/scoreTeam2"
+        app:layout_constraintStart_toStartOf="@+id/scoreTeam2"
+        app:layout_constraintTop_toBottomOf="@+id/scoreTeam2"
+        app:layout_constraintVertical_bias="0.448" />
+
+    <TextView
+        android:id="@+id/hyphen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="-"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/pass_your_team"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.456" />
+
+    <Chronometer
+        android:id="@+id/chronometer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/hyphen"
+        app:layout_constraintEnd_toEndOf="@+id/hyphen"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="@+id/hyphen"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/pass_your_team"
+        android:layout_width="201dp"
+        android:layout_height="86dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/shot_your_team"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/team1Name"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/pass_button" />
+
+    <ImageButton
+        android:id="@+id/pass_other_team"
+        android:layout_width="201dp"
+        android:layout_height="86dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginStart="8dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/pass_your_team"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/pass_your_team"
+        app:layout_constraintTop_toTopOf="@+id/pass_your_team"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/pass_other_name" />
+
+    <ImageButton
+        android:id="@+id/shot_your_team"
+        android:layout_width="201dp"
+        android:layout_height="86dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="3dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/goal_your_team"
+        app:layout_constraintEnd_toEndOf="@+id/pass_your_team"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/shot_my_team" />
+
+    <ImageButton
+        android:id="@+id/goal_your_team"
+        android:layout_width="201dp"
+        android:layout_height="86dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="3dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/foul_your_team"
+        app:layout_constraintEnd_toEndOf="@+id/shot_your_team"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/goal_my_team" />
+
+    <ImageButton
+        android:id="@+id/foul_your_team"
+        android:layout_width="201dp"
+        android:layout_height="86dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="3dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/turnover_your_team"
+        app:layout_constraintEnd_toEndOf="@+id/goal_your_team"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/foul_my_team" />
+
+    <ImageButton
+        android:id="@+id/turnover_your_team"
+        android:layout_width="201dp"
+        android:layout_height="86dp"
+        android:layout_marginBottom="68dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="3dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/foul_your_team"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/turnover_my_team" />
+
+    <ImageButton
+        android:id="@+id/shot_other_team"
+        android:layout_width="201dp"
+        android:layout_height="86dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginTop="8dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/shot_your_team"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pass_other_team"
+        app:layout_constraintTop_toTopOf="@+id/shot_your_team"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/shot_other_name" />
+
+    <ImageButton
+        android:id="@+id/goal_other_team"
+        android:layout_width="201dp"
+        android:layout_height="86dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginTop="8dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/goal_your_team"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/shot_other_team"
+        app:layout_constraintTop_toTopOf="@+id/goal_your_team"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/goal_other_name" />
+
+    <ImageButton
+        android:id="@+id/foul_other_team"
+        android:layout_width="201dp"
+        android:layout_height="86dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginTop="8dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/foul_your_team"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/goal_other_team"
+        app:layout_constraintTop_toTopOf="@+id/foul_your_team"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/foul_other_name" />
+
+    <ImageButton
+        android:id="@+id/turnover_other_team"
+        android:layout_width="201dp"
+        android:layout_height="86dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginTop="8dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/turnover_your_team"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/foul_other_team"
+        app:layout_constraintTop_toTopOf="@+id/turnover_your_team"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/turnover_other_team" />
+
+    <ImageButton
+        android:id="@+id/end_game"
+        android:layout_width="148dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/turnover_your_team"
+        app:srcCompat="@drawable/end_game_v4" />
+
+    <ImageButton
+        android:id="@+id/pauseButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/end_game"
+        app:layout_constraintEnd_toStartOf="@+id/end_game"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/end_game"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/pause_button" />
+
+    <Button
+        android:id="@+id/buttonTeam1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/soccer_ball"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonTeam2"
+        app:layout_constraintEnd_toEndOf="@+id/scoreTeam1"
+        app:layout_constraintStart_toStartOf="@+id/scoreTeam1"
+        app:layout_constraintTop_toTopOf="@+id/buttonTeam2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonTeam2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="12dp"
+        android:background="#00000000"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/scoreTeam2"
+        app:layout_constraintEnd_toEndOf="@+id/scoreTeam2"
+        app:layout_constraintStart_toStartOf="@+id/scoreTeam2"
+        app:layout_constraintTop_toTopOf="@+id/scoreTeam2"
+        app:layout_constraintVertical_bias="0.372" />
+
+</android.support.constraint.ConstraintLayout>

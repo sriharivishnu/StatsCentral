@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "776791842073",
+    "firebase_url": "https://statscentral-e54e7.firebaseio.com",
+    "project_id": "statscentral-e54e7",
+    "storage_bucket": "statscentral-e54e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776791842073:android:d1199639be9d52b9",
+        "android_client_info": {
+          "package_name": "com.magnitudestudios.sriharivishnu.statscentral"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776791842073-dersavr20r4fa28ui685fkrim93q1im7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.magnitudestudios.sriharivishnu.statscentral",
+            "certificate_hash": "a0cbf29b616b2d2042e94be8ce6655afde76b6a2"
+          }
+        },
+        {
+          "client_id": "776791842073-unk25701bv03bu7fb9glio27qguovalg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpdm_QhgSTpX-Ovn_ipcEDG48Bfgpwt58"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "776791842073-unk25701bv03bu7fb9glio27qguovalg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

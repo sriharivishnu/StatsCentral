@@ -1,0 +1,51 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="General">
+        <SwitchPreference
+            android:key="pos_ball"
+            android:title="Show Possession Ball"/>
+        <CheckBoxPreference
+            android:key="unl_time"
+            android:title="Unlimited Length"
+            android:summary="Set Default Time of game to Unlimited"
+            android:defaultValue="Click on Box"/>
+
+        <EditTextPreference
+            android:key="set_time"
+            android:title="Set Default Duration"
+            android:summary="Default duration of games"
+            android:dialogTitle="Set Duration"
+            android:dependency="unl_time" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Support">
+        <Preference
+            android:title="Help"
+            android:selectable="true" />
+
+        <Preference
+            android:title="About">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://sriharivishnu.wixsite.com/magnitudestudios" />
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="User">
+        <Preference
+            android:key="change_password"
+            android:title="Change Password"
+            android:selectable="true"
+            />
+        <Preference
+            android:key="logout"
+            android:title="Logout"
+            android:selectable="true"
+            />
+    </PreferenceCategory>
+
+
+</PreferenceScreen>
