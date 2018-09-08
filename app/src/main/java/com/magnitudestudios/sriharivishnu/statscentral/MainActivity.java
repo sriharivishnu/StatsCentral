@@ -1,8 +1,5 @@
 package com.magnitudestudios.sriharivishnu.statscentral;
 
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -12,15 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.SeekBar;
-import android.widget.Spinner;
-import android.widget.TextView;
+
 
 import com.google.firebase.auth.FirebaseAuth;
 
