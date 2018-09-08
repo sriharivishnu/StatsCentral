@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -35,7 +36,7 @@ public class HomeFragment extends Fragment {
     private TextView showLength, sportTitle, timeLengthTitle, vsText;
     private ImageView mainLogo;
     private EditText yourTeamEdit, opposingTeamEdit;
-    private ImageButton livestream_button;
+    private ImageButton livestream_button, view_livestream;
 
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
@@ -63,6 +64,7 @@ public class HomeFragment extends Fragment {
         vsText = (TextView) view.findViewById(R.id.vsText);
         settingsButton = (ImageButton) view.findViewById(R.id.settingsButton);
         livestream_button = (ImageButton) view.findViewById(R.id.start_livestream);
+        view_livestream = (ImageButton) view.findViewById(R.id.view_livestream_button);
 
         sportSelector = (Spinner) view.findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.sports_array, android.R.layout.simple_spinner_item);
@@ -93,6 +95,7 @@ public class HomeFragment extends Fragment {
         buttonAnimation(startGame);
         buttonAnimation(settingsButton);
         buttonAnimation(livestream_button);
+        buttonAnimation(view_livestream);
         return view;
 
     }
@@ -134,7 +137,7 @@ public class HomeFragment extends Fragment {
     public void buttonAction(ImageButton b) {
         switch (b.getId()) {
             case R.id.startNewGame:
-                startNewGame(false);
+                startNewGame(false, "");
                 break;
             case R.id.settingsButton:
                 goToSettings();
@@ -142,9 +145,26 @@ public class HomeFragment extends Fragment {
             case R.id.start_livestream:
                 startLiveStream();
                 break;
+            case R.id.view_livestream_button:
+                goToViewLivestream();
+                break;
         }
     }
-    private void startNewGame(boolean b){
+    private void goToViewLivestream() {
+        final EnterKeyDialog enterKeyDialog = new EnterKeyDialog(getActivity());
+        enterKeyDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                Log.d("DSF", "Entered");
+                Intent intent = new Intent(getActivity(), ViewLivestream.class);
+                intent.putExtra("LiveStreamViewKey", enterKeyDialog.getLiveStreamKey());
+                startActivity(intent);
+            }
+        });
+        enterKeyDialog.show();
+
+    }
+    private void startNewGame(boolean b, String key){
         Intent intent = new Intent(getActivity(), Game.class);
         if (yourTeamEdit.getText().toString().equals("")) {
             intent.putExtra("YourTeamName", "Team1");
@@ -159,6 +179,7 @@ public class HomeFragment extends Fragment {
         intent.putExtra("TimeLength", seekBar.getProgress());
         if (b) {
             intent.putExtra("LiveStream",true);
+            intent.putExtra("LiveStreamKey", key);
         } else {
             intent.putExtra("LiveStream", false);
         }
@@ -169,16 +190,15 @@ public class HomeFragment extends Fragment {
         if (isNetworkConnected()) {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference reference = database.getReference();
-            String key = reference.child("livestreams").push().getKey();
+            final String key = reference.child("livestreams").push().getKey();
             final CustomDialog showCode = new CustomDialog(getActivity(), key);
             showCode.setOnDismissListener(new DialogInterface.OnDismissListener() {
                 @Override
                 public void onDismiss(DialogInterface dialogInterface) {
-                    if (showCode.getUserSelection()) {
-                        startNewGame(true);
-                    }
+                    startNewGame(true, key);
                 }
             });
+            showCode.show();
         } else {
             Toast.makeText(getContext(), "No Wifi Connection", Toast.LENGTH_LONG).show();
         }

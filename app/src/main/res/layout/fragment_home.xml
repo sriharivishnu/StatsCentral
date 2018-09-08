@@ -224,4 +224,21 @@
         app:layout_constraintTop_toBottomOf="@+id/startNewGame"
         app:srcCompat="@drawable/livestream_button" />
 
+    <ImageButton
+        android:id="@+id/view_livestream_button"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/start_livestream"
+        app:layout_constraintEnd_toStartOf="@+id/start_livestream"
+        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/start_livestream"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/tv_icon_final" />
+
 </android.support.constraint.ConstraintLayout>

@@ -19,7 +19,7 @@ public class SettingsActivity extends AppCompatActivity {
         getFragmentManager().beginTransaction()
                 .replace(R.id.frameLayout, new SettingsFragment())
                 .commit();
-        Toolbar toolbar = findViewById(R.id.dialog_toolbar);
+        Toolbar toolbar = findViewById(R.id.code_dialog_toolbar);
         Drawable backArrow = getResources().getDrawable(R.drawable.ic_arrow_back_black_24dp);
         backArrow.setTint(getResources().getColor(R.color.white));
         toolbar.setNavigationIcon(backArrow);

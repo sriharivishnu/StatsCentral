@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -63,6 +64,7 @@ public class Game extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
+
         //Red, Blue, White, Black, Yellow, Green
         //States
         chronoState = true;
@@ -84,6 +86,10 @@ public class Game extends AppCompatActivity {
         livestream_state = getIntent().getBooleanExtra("LiveStream", false);
 
         livestreamKey = getIntent().getStringExtra("LiveStreamKey");
+
+        if (livestream_state) {
+            init_livestream();
+        }
 
         yourTeamText.setText(team1Name);
         otherTeamText.setText(team2Name);
@@ -344,6 +350,7 @@ public class Game extends AppCompatActivity {
                 scoreTeam1.setText(Integer.toString(ygoal));
                 switchToMyTeam();
                 addToLiveStream();
+                team1Goal();
                 break;
             case R.id.foul_your_team:
                 yfoul += 1;
@@ -381,6 +388,7 @@ public class Game extends AppCompatActivity {
                 scoreTeam2.setText(Integer.toString(ogoal));
                 switchToOtherTeam();
                 addToLiveStream();
+                team2Goal();
                 break;
             case R.id.foul_other_team:
                 ofoul += 1;
@@ -429,10 +437,29 @@ public class Game extends AppCompatActivity {
 
         }
     }
+    private void init_livestream() {
+        DatabaseReference reference = database.getReference();
+        reference.child("livestreams").child(livestreamKey).child("Score").child("Team1").setValue(0);
+        reference.child("livestreams").child(livestreamKey).child("Score").child("Team2").setValue(0);
+        reference.child("livestreams").child(livestreamKey).child("Team1").setValue(team1Name);
+        reference.child("livestreams").child(livestreamKey).child("Team2").setValue(team2Name);
+    }
     private void addToLiveStream() {
         if (livestream_state) {
             DatabaseReference reference = database.getReference();
             reference.child("livestreams").child(livestreamKey).child("Contents").setValue(master);
+        }
+    }
+    private void team1Goal() {
+        if (livestream_state) {
+            DatabaseReference reference = database.getReference();
+            reference.child("livestreams").child(livestreamKey).child("Score").child("Team1").setValue(ygoal);
+        }
+    }
+    private void team2Goal() {
+        if (livestream_state) {
+            DatabaseReference reference = database.getReference();
+            reference.child("livestreams").child(livestreamKey).child("Score").child("Team2").setValue(ygoal);
         }
     }
     @Override
