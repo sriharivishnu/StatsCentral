@@ -40,4 +40,34 @@ public class SettingsFragment extends PreferenceFragment {
 //
 //        return v;
 //    }
+    /*if (!toBeRemoved.isEmpty()) {
+            ArrayList<String> temp= new ArrayList<>();
+            int i = 0;
+            for (int x = 0; x < a.size(); x+=5) {
+
+                if (!toBeRemoved.get(i).equals(Integer.toString(x/5))) {
+                    for (int y = 0; y< 5; y++) {
+                        temp.add(a.get(x+y));
+                    }
+                } else {
+                    if (i+1 < toBeRemoved.size()) {
+                        i++;
+                    }
+                }
+            }
+            a = new ArrayList<>(temp);
+            temp.clear();
+            i = 0;
+            for (int x = 0; x < b.size(); x++) {
+                if (!toBeRemoved.get(i).equals(Integer.toString(x))) {
+                    temp.add(b.get(x));
+                } else {
+                    if (i+1 < toBeRemoved.size()) {
+                        i++;
+                    }
+                }
+            }
+            b = new ArrayList<>(temp);
+            temp.clear();
+        }*/
 }
