@@ -82,7 +82,6 @@ public class YourTeamsFragment extends Fragment {
         });
         games = new ArrayList<MatchClass>();
 
-        //Put this in onCreate
         mReference = database.getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Games");
         mReference.addValueEventListener(new ValueEventListener() {
             @Override

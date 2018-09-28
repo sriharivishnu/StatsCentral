@@ -81,7 +81,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:background="#00000000"
-        android:onClick="gotoHome"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/bysigningup"
         app:layout_constraintLeft_toLeftOf="parent"
