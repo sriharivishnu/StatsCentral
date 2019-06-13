@@ -2,6 +2,7 @@ package com.magnitudestudios.sriharivishnu.statscentral;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class ViewLivestream extends AppCompatActivity {
     private DatabaseReference mReference;
     private ArrayList<String> contents;
     private MyAdapter adapter;
+    private Integer score1, score2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,8 @@ public class ViewLivestream extends AppCompatActivity {
                 contents = dataSnapshot.child("Contents").getValue(genericTypeIndicator);
                 name1 = dataSnapshot.child("Team1").getValue(String.class);
                 name2 = dataSnapshot.child("Team2").getValue(String.class);
+                score1 = dataSnapshot.child("Score").child("Team1").getValue(Integer.class);
+                score2 = dataSnapshot.child("Score").child("Team2").getValue(Integer.class);
                 onComplete();
             }
 
@@ -46,8 +50,8 @@ public class ViewLivestream extends AppCompatActivity {
             }
         });
 
-        scoreteam1 = (TextView) findViewById(R.id.scoreTeam1);
-        scoreteam2 = (TextView) findViewById(R.id.scoreTeam2);
+        scoreteam1 = (TextView) findViewById(R.id.scoreTeam1Livestream);
+        scoreteam2 = (TextView) findViewById(R.id.scoreTeam2Livestream);
         team1name = (TextView) findViewById(R.id.team1NameViewLivestream);
         team2name = (TextView) findViewById(R.id.team2NameViewLivestream);
 
@@ -67,6 +71,8 @@ public class ViewLivestream extends AppCompatActivity {
             showContents.setAdapter(adapter);
             team1name.setText(name1);
             team2name.setText(name2);
+            scoreteam1.setText(Integer.toString(score1));
+            scoreteam2.setText(Integer.toString(score2));
         } else {
             adapter.notifyDataSetChanged();
         }

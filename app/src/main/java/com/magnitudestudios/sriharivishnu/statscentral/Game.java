@@ -234,7 +234,7 @@ public class Game extends AppCompatActivity {
                 intent.putStringArrayListExtra("OtherTeam",team2Contents);
 
                 saveToDatabase();
-
+                endLiveStream();
                 startActivity(intent);
                 finish();
             }
@@ -279,7 +279,7 @@ public class Game extends AppCompatActivity {
         }
         intent.putStringArrayListExtra("YourTeam",team1Contents);
         intent.putStringArrayListExtra("OtherTeam",team2Contents);
-
+        endLiveStream();
         saveToDatabase();
 
         startActivity(intent);
@@ -459,7 +459,14 @@ public class Game extends AppCompatActivity {
     private void team2Goal() {
         if (livestream_state) {
             DatabaseReference reference = database.getReference();
-            reference.child("livestreams").child(livestreamKey).child("Score").child("Team2").setValue(ygoal);
+            reference.child("livestreams").child(livestreamKey).child("Score").child("Team2").setValue(ogoal);
+        }
+    }
+    private void endLiveStream() {
+        //End Live Stream
+        if (livestream_state) {
+            DatabaseReference reference = database.getReference();
+            reference.child("livestreams").child(livestreamKey).setValue(null);
         }
     }
     @Override

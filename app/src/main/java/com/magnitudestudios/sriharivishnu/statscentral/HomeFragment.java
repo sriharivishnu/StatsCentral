@@ -155,7 +155,6 @@ public class HomeFragment extends Fragment {
         enterKeyDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialogInterface) {
-                Log.d("DSF", "Entered");
                 Intent intent = new Intent(getActivity(), ViewLivestream.class);
                 intent.putExtra("LiveStreamViewKey", enterKeyDialog.getLiveStreamKey());
                 startActivity(intent);
