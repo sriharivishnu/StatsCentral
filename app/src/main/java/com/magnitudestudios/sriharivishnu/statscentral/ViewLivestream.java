@@ -10,6 +10,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -32,7 +33,8 @@ public class ViewLivestream extends AppCompatActivity {
         mReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                contents = dataSnapshot.child("Contents").getValue(ArrayList.class);
+                GenericTypeIndicator<ArrayList<String>> genericTypeIndicator = new GenericTypeIndicator<ArrayList<String>>() {};
+                contents = dataSnapshot.child("Contents").getValue(genericTypeIndicator);
                 name1 = dataSnapshot.child("Team1").getValue(String.class);
                 name2 = dataSnapshot.child("Team2").getValue(String.class);
                 onComplete();

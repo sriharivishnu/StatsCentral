@@ -66,15 +66,15 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Sport"
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/startNewGame"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintHorizontal_bias="0.028"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainLogo"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintVertical_bias="0.027" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -98,16 +98,16 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
-        android:textStyle="bold"
         android:text="Length (min)"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/startNewGame"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/sportTitle"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="0.066" />
+        app:layout_constraintVertical_bias="0.018" />
 
     <SeekBar
         android:id="@+id/seekBar"
@@ -123,7 +123,7 @@
         app:layout_constraintHorizontal_bias="0.833"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lengthTitle"
-        app:layout_constraintVertical_bias="0.079" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/timeLength"
@@ -155,9 +155,10 @@
         android:paddingLeft="10dp"
         app:layout_constraintBottom_toTopOf="@+id/startNewGame"
         app:layout_constraintEnd_toStartOf="@+id/opposingTeamEdit"
-        app:layout_constraintHorizontal_bias="0.349"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/opposingTeamEdit"
@@ -173,7 +174,7 @@
         android:paddingLeft="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/yourTeamEdit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.902"
+        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/yourTeamEdit"
         app:layout_constraintVertical_bias="1.0" />
