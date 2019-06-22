@@ -6,6 +6,8 @@ package com.magnitudestudios.sriharivishnu.statscentral;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -80,6 +82,7 @@ public class AveragesFragment extends Fragment{
         ArrayList<String> data = new ArrayList<>(Arrays.asList(arr2));
         MyAdapter list_adapter = new MyAdapter(getContext(), data);
         showAverages.setAdapter(list_adapter);
+        buttonAnimation(submitGame);
         return v;
     }
     public void buttonAnimation(final ImageButton button) {
@@ -125,5 +128,16 @@ public class AveragesFragment extends Fragment{
     }
     private void submit() {
         //TODO
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext()).setTitle("BETA").setMessage("Sorry, this feature isn't available yet!").setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        alertDialog.show();
+
+
+
     }
 }

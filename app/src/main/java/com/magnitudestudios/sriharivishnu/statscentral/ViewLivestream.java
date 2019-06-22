@@ -35,13 +35,19 @@ public class ViewLivestream extends AppCompatActivity {
         mReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                GenericTypeIndicator<ArrayList<String>> genericTypeIndicator = new GenericTypeIndicator<ArrayList<String>>() {};
-                contents = dataSnapshot.child("Contents").getValue(genericTypeIndicator);
-                name1 = dataSnapshot.child("Team1").getValue(String.class);
-                name2 = dataSnapshot.child("Team2").getValue(String.class);
-                score1 = dataSnapshot.child("Score").child("Team1").getValue(Integer.class);
-                score2 = dataSnapshot.child("Score").child("Team2").getValue(Integer.class);
-                onComplete();
+                if (dataSnapshot.exists()) {
+                    GenericTypeIndicator<ArrayList<String>> genericTypeIndicator = new GenericTypeIndicator<ArrayList<String>>() {
+                    };
+                    contents = dataSnapshot.child("Contents").getValue(genericTypeIndicator);
+                    if (contents != null) {
+                        Log.d("ARR", contents.toString());
+                    }
+                    name1 = dataSnapshot.child("Team1").getValue(String.class);
+                    name2 = dataSnapshot.child("Team2").getValue(String.class);
+                    score1 = dataSnapshot.child("Score").child("Team1").getValue(Integer.class);
+                    score2 = dataSnapshot.child("Score").child("Team2").getValue(Integer.class);
+                    onComplete();
+                }
             }
 
             @Override
@@ -63,18 +69,15 @@ public class ViewLivestream extends AppCompatActivity {
         mReference = mDatabase.getReference().child("livestreams").child(getIntent().getStringExtra("LiveStreamViewKey"));
     }
     private void onComplete() {
-        if (adapter == null) {
-            if (contents == null) {
-                contents = new ArrayList<>();
-            }
-            adapter = new MyAdapter(ViewLivestream.this, contents);
-            showContents.setAdapter(adapter);
-            team1name.setText(name1);
-            team2name.setText(name2);
-            scoreteam1.setText(Integer.toString(score1));
-            scoreteam2.setText(Integer.toString(score2));
-        } else {
-            adapter.notifyDataSetChanged();
+        if (contents == null) {
+            contents = new ArrayList<>();
         }
+        adapter = new MyAdapter(ViewLivestream.this, contents);
+        showContents.setAdapter(adapter);
+        team1name.setText(name1);
+        team2name.setText(name2);
+        scoreteam1.setText(Integer.toString(score1));
+        scoreteam2.setText(Integer.toString(score2));
+        showContents.setSelection(adapter.getCount() - 1);
     }
 }

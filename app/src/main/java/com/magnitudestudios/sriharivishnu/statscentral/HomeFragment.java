@@ -155,9 +155,11 @@ public class HomeFragment extends Fragment {
         enterKeyDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialogInterface) {
-                Intent intent = new Intent(getActivity(), ViewLivestream.class);
-                intent.putExtra("LiveStreamViewKey", enterKeyDialog.getLiveStreamKey());
-                startActivity(intent);
+                if (enterKeyDialog.getUserSelection()) {
+                    Intent intent = new Intent(getActivity(), ViewLivestream.class);
+                    intent.putExtra("LiveStreamViewKey", enterKeyDialog.getLiveStreamKey());
+                    startActivity(intent);
+                }
             }
         });
         enterKeyDialog.show();
